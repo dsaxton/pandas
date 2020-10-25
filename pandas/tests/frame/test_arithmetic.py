@@ -210,7 +210,7 @@ class TestFrameFlexComparisons:
             col_eq = df.eq(col_ser)
             idx_ne = df.ne(idx_ser, axis=0)
             col_ne = df.ne(col_ser)
-            tm.assert_frame_equal(col_eq, df == Series(col_ser))
+            tm.assert_frame_equal(col_eq, df == pd.Series(col_ser))
             tm.assert_frame_equal(col_eq, -col_ne)
             tm.assert_frame_equal(idx_eq, -idx_ne)
             tm.assert_frame_equal(idx_eq, df.T.eq(idx_ser).T)
