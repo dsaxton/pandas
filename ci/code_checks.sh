@@ -40,8 +40,7 @@ function invgrep {
 function check_namespace {
     local -r CLASS=${1}
     grep -R -l --include "*.py" " ${CLASS}(" pandas/tests | xargs grep -n "pd\.${CLASS}[(\.]"
-    local -r EXIT_STATUS=$?
-    if [[ $EXIT_STATUS == 0 ]]; then
+    if [[ $? == 0 ]]; then
         echo "Do not use both pd.${CLASS} and ${CLASS} in the same file"
         return 1
     else
